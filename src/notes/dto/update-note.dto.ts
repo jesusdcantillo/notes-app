@@ -22,7 +22,7 @@ export function validateUpdateNoteDto(data: any): {
   }
 
   if (data.description !== undefined && typeof data.description !== 'string') {
-    errors.push('Deswcripción debe ser un string.');
+    errors.push('Descripción debe ser un string.');
   }
 
   return {
