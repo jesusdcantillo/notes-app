@@ -1,6 +1,8 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  // Use the default generator output so @prisma/client can find the runtime
+  // at node_modules/.prisma/client. Removing a custom `output` lets
+  // `prisma generate` put the generated client where the package expects it.
+  provider = "prisma-client-js"
 }
 
 datasource db {
