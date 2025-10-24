@@ -1,98 +1,271 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📝 Gestor de Notas - NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Un API RESTful para gestionar notas, construido con NestJS, Prisma y Supabase.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## ✨ Características
 
-## Description
+- ✅ Crear, leer, actualizar y eliminar notas
+- ✅ Validación de datos integrada
+- ✅ Base de datos PostgreSQL con Supabase
+- ✅ ORM Prisma para manejo de base de datos
+- ✅ TypeScript para tipado estático
+- ✅ API RESTful completa
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Tecnologías
 
-## Project setup
+- **Framework:** NestJS
+- **Base de datos:** PostgreSQL (Supabase)
+- **ORM:** Prisma
+- **Lenguaje:** TypeScript
 
-```bash
-$ npm install
-```
+## 📋 Prerrequisitos
 
-## Compile and run the project
+Antes de comenzar, asegúrate de tener instalado:
 
-```bash
-# development
-$ npm run start
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- npm o yarn
+- Git
+- Una cuenta en [Supabase](https://supabase.com/)
 
-# watch mode
-$ npm run start:dev
+## 🚀 Instalación
 
-# production mode
-$ npm run start:prod
-```
+Sigue estos pasos para configurar el proyecto localmente:
 
-## Run tests
+### 1. Clonar el repositorio
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone https://github.com/tu-usuario/gestor-notas.git
+cd gestor-notas
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 2. Instalar dependencias
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3. Configurar variables de entorno
 
-## Resources
+Crea un archivo `.env` en la raíz del proyecto (notes-app\.env):
 
-Check out a few resources that may come in handy when working with NestJS:
+**Obtener la DATABASE_URL de Supabase:**
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+1. Ve a tu proyecto en [Supabase](https://app.supabase.com/)
+2. Conectar > Connection String > Method: **Session Pooler**
+3. Copia el contenido
+4. Reemplaza `[password]` con tu contraseña de base de datos
 
-## Support
+**Ejemplpo**: ```postgresql://postgres.[YOUR-PROJECT-REF]:[YOUR-PASSWORD]@aws-1-us-east-2.pooler.supabase com:5432/postgres```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Tu archivo `.env` debe verse así:**
 
-## Stay in touch
+```DATABASE_URL="postgresql://postgres.[YOUR-PROJECT-REF]:[YOUR-PASSWORD]@aws-1-us-east-2.pooler.supabase com:5432/postgres"```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+### 4. Configurar la base de datos
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+# Generar el cliente de Prisma
+npx prisma generate
+
+# Ejecutar las migraciones
+npx prisma migrate --name init
+```
+
+### 5. Ejecutar el proyecto
+
+**Modo desarrollo:**
+
+```bash
+npm run start:dev
+```
+
+**Modo producción:**
+
+```bash
+npm run build
+npm run start:prod
+```
+
+El servidor estará disponible en: **http://localhost:3000**
+
+## 📚 API Endpoints
+
+### Notas
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/notes` | Obtener todas las notas |
+| GET | `/notes/:id` | Obtener una nota por ID |
+| POST | `/notes` | Crear una nueva nota |
+| PUT | `/notes/:id` | Actualizar una nota existente |
+| DELETE | `/notes/:id` | Eliminar una nota |
+
+### Ejemplos de uso
+
+#### Crear una nota
+
+```bash
+curl -X POST http://localhost:3000/notes \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Mi primera nota",
+    "description": "Esta es una descripción de ejemplo"
+  }'
+```
+
+#### Obtener todas las notas
+
+```bash
+curl -X GET http://localhost:3000/notes
+```
+
+#### Obtener una nota específica
+
+```bash
+curl -X GET http://localhost:3000/notes/1
+```
+
+#### Actualizar una nota
+
+```bash
+curl -X PUT http://localhost:3000/notes/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Título actualizado",
+    "description": "Descripción actualizada"
+  }'
+```
+
+#### Eliminar una nota
+
+```bash
+curl -X DELETE http://localhost:3000/notes/1
+```
+
+## 🧪 Pruebas
+
+### Probar con Thunder Client (VS Code)
+
+1. Instala la extensión **Thunder Client** en VS Code
+2. Abre Thunder Client desde la barra lateral
+3. Crea las siguientes requests:
+
+**GET All Notes**
+```
+Method: GET
+URL: http://localhost:3000/notes
+```
+
+**CREATE Note**
+```
+Method: POST
+URL: http://localhost:3000/notes
+Body: {
+  "title": "Nota de prueba",
+  "description": "Descripción de prueba"
+}
+```
+
+### Probar con Postman
+
+Importa esta colección en Postman:
+
+```json
+{
+  "info": {
+    "name": "Gestor de Notas API",
+    "description": "Colección para probar el API del Gestor de Notas"
+  },
+  "item": [
+    {
+      "name": "Listar notas",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/notes"
+      }
+    },
+    {
+      "name": "Crear nota",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/notes",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Mi nota\",\n  \"description\": \"Mi descripción\"\n}"
+        }
+      }
+    }
+  ]
+}
+```
+
+## 🗄️ Estructura del Proyecto
+
+```
+prisma/
+├── migrations/
+├── schema.prisma
+src/
+├── notes/
+│   ├── dto/
+│   │   ├── create-note.dto.ts
+│   │   └── update-note.dto.ts
+│   ├── notes.controller.ts
+│   ├── notes.module.ts
+│   └── notes.service.ts
+├── prisma/
+│   ├── prisma.module.ts
+│   └── prisma.service.ts
+├── app.controller.spec.ts
+├── app.controller.ts
+├── app.module.ts
+├── app.service.ts
+└── main.ts
+```
+
+## 📊 Modelo de Datos
+
+```prisma
+model Note {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+```
+
+## 🐛 Solución de Problemas
+
+### Error de conexión a la base de datos
+
+- Verifica que dotenv esté instalado en `package.json` e importado en `prisma.config.ts` así: `import 'dotenv/config';`
+- Verifica que la `DATABASE_URL` en `.env` sea correcta
+- Asegúrate de que tu proyecto de Supabase esté activo
+- Verifica que la IP esté en la allowlist de Supabase
+
+### Error de migración
+
+```bash
+# Resetear la base de datos (cuidado: elimina todos los datos)
+npx prisma migrate reset
+
+# O forzar el push del esquema
+npx prisma db push --force-reset
+```
+
+### Error de tipos TypeScript y/o ESLint
+
+- Resetea el servidor de ESLint: En VSCODE presiona **F1** > Restart ESLint Server
+- Formatea el código: En VSCODE presiona **F1** > Format Document o su atajo **`SHIFT` + `ALT` + `F`**
+
+```bash
+# Regenerar el cliente de Prisma
+npx prisma generate
+
+# Reinstalar dependencias
+npm install
+```
+
+By: Jesús Cantillo.
